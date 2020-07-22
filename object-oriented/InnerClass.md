@@ -26,7 +26,7 @@
     }
 
 #### static
-<!-- static与non-static修饰符不同，其他大体一致 -->
+static与non-static修饰符、新建对象格式，其他大体一致；
 new格式为：`Outer.Inner inner = new Outer.Inner();`
 
 ## Anonymous InnerClass
