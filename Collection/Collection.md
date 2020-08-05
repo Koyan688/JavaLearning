@@ -2,8 +2,8 @@
 
 **泛型就是数据类型的参数化，用于建立安全的集合。**
 
-1. 声明：`class MyClass<E> {}`*^^E为形参*
-2. 调用：`MyClass<String> mc = new MyClass<>();`	*^^String为实参，也可为其他基本数据类型的包装类<Integer>、<Character>……*
+1. 声明：`class MyClass<E> {}`*^^^E为形参*
+2. 调用：`MyClass<String> mc = new MyClass<>();`	*^^^String为实参，也可为其他基本数据类型的包装类\<Integer>、\<Character>……*
 
 ***
 
@@ -11,7 +11,7 @@
 
 ## 容器内操作
 
-`Collection<String> c = new ArrayList<>();`	*^^ArrayList继承List继承Collection*
+`Collection<String> c = new ArrayList<>();`	*^^^ArrayList继承List继承Collection*
 
 1. size()
 2. isEmpty()
@@ -60,9 +60,9 @@ c1.retainAll(c);	//Retains only the elements in this collection that are contain
 
 ## Common Method of List  	List接口的常用方法
 
-1. add(int,E)	*^^int index, E element* *^^指定位置插入*
-2. remove(int)	*^^int index*
-3. set(int,E)	*^^int index, E element* *^^指定位置覆盖*
-4. get(int)		*^^int index* *return E*
-5. indexOf(Object)	*^^Object为基本数据类型或对象* *^^return the index of the first occurrence of the specified element or -1 if there is no such index.* 
+1. add(int,E)	*^^^int index, E element* *^^^指定位置插入*
+2. remove(int)	*^^^int index*
+3. set(int,E)	*^^^int index, E element* *^^^指定位置覆盖*
+4. get(int)		*^^^int index* *return E*
+5. indexOf(Object)	*^^^Object为基本数据类型或对象* *^^^return the index of the first occurrence of the specified element or -1 if there is no such index.* 
 6. lastIndexOf(Object)
