@@ -66,3 +66,86 @@ c1.retainAll(c);	//Retains only the elements in this collection that are contain
 4. get(int)		*\_int index* *\_return E*
 5. indexOf(Object)	*\_Object为基本数据类型或对象* *\_return the index of the first occurrence of the specified element or -1 if there is no such index.* 
 6. lastIndexOf(Object)
+
+# ArrayList
+
+## ArrayList's Feature 	基本特征
+
+1. 底层用数组实现存储,**通过*数组扩容*实现数组扩容和增删元素**;
+2. 查询效率高；
+3. 增删效率低；
+4. 线程不安全；
+
+## 自定义ArrayList，理解底层原理
+```java
+public class myArrayList<E> {
+	private Object[] elementData;
+	private int size;
+	
+	private static final int DEFAULT_CAPACITY = 10;
+	
+	public myArrayList(){
+		elementData = new Object[DEFAULT_CAPACITY];
+	}
+	
+	public myArrayList(int capacity) {
+		elementData = new Object[capacity];
+	}
+	
+//	set方法
+	public void set(int index, E element ) {
+		rangeJudge(index, size);
+		elementData[index] = element;
+	}
+	
+//	getIndex比对元素内容获取索引值
+	public int getIndex(E element) {
+		for (int i = 0; i < elementData.length; i++) {
+			if(element.equals(elementData[i])){
+				return i;
+			};
+		}
+//	未找到该元素返回-1
+		return -1;
+	}
+	
+	public E getElement(int index) {
+		rangeJudge(index, size);
+		return (E)elementData[index];
+	}
+
+	public void add(E element) {
+		elementData[size++] = element;
+	}
+
+	private void rangeJudge(int index,int size) {
+		if(index<0||index>=size)
+			throw new RuntimeException("索引不合法："+index);
+	}
+	
+	@Override	
+	public String toString() {
+		StringBuilder string01 = new StringBuilder();
+		
+		string01.append("[");
+		for (int i = 0; i < size; i++) {
+			string01.append(elementData[i]+",");
+		}
+		string01.setCharAt(string01.length()-1,']');
+		
+		return string01.toString();
+	}
+	
+	public static void main(String[] args) {
+		myArrayList<String> s1 = new myArrayList<>();
+
+		s1.add("aa");
+		s1.add("bb");
+		s1.add("cc");
+		
+		System.out.println(s1); 
+		System.out.println(s1.getIndex("bb"));
+		System.out.println(s1.getElement(0));
+	}
+}
+```
